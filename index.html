@@ -2,7 +2,7 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Card Action Buttons</title>
+    <title>Omkar Dusane | Developer</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     
     
@@ -20,40 +20,32 @@
 
     <div ng-controller="AppCtrl" ng-cloak="" class="carddemoCardActionButtons" ng-app="MyApp">
   <md-content class="md-padding" layout-xs="column" layout="row">
-    <div flex-xs="" flex-gt-xs="50" layout="column">
+    <div flex-xs="" flex-gt-xs="65" layout="column">
       <md-card>
-        <img  ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">Omkar Dusane</span>
           </md-card-title-text>
         </md-card-title>
+        <img flex-gt-xs="40" ng-src="https://s4.postimg.org/yvip15065/omkar_dusane.jpg" class="md-card-image" alt="Washed Out">
         <md-card-content>
           <p>
-       I am a software developer, Loves three things : Eat, Sleep and Code . <br /> What I do best is Design Minimum IVable Products and software components for startups and Build them. I live in Mumbai and I am open to discuss with you your ideas and your business plans. feel free to contact me. 
+        Hi, I am a software developer who loves three things 
+	   <br /> Eat, Sleep and Code . <br /> What I do best is Design Minimum Viable Software Products and software components for startups and Build them, I am a full-stack. I live in Mumbai and I am open to discuss with you your ideas and your business plans. feel free to contact me and have a look at my linkedIn to see my work.. 
           </p>
           <br />
           <p>  omkardusane@gmail.com | +91 9821850314 | omkardusane2@hotmail.com (skype) </p>
         </md-card-content>
         <md-card-actions layout="column" layout-align="start">
-          <md-button  ng-click="go('https://www.linkedin.com/in/omkardusane')"  >LinkedIn</md-button>
-          <md-button   ng-click="go('https://www.facebook.com/dusaneomkar2')" >Facebook</md-button>
-        </md-card-actions>
+          <md-button  ng-click="linkedin()"  >LinkedIn</md-button>
+          <md-button   ng-click="facebook()" >Facebook</md-button>
+	   </md-card-actions>
       </md-card>
     </div>
     </md-content>
 </div>
 
-<script>
-
-angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
-
-.controller('AppCtrl', function($scope) {
-  $scope.imagePath = 'https://s4.postimg.org/yvip15065/omkar_dusane.jpg';
-});
-
-</script>
-    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js'></script>
+ <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js'></script>
 <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js'></script>
 <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js'></script>
 <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js'></script>
@@ -61,8 +53,25 @@ angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
 <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js'></script>
 <script src='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0/angular-material.js'></script>
 
-        <script src="js/index.js"></script>
+<script>
 
+angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
+
+.controller('AppCtrl', function($scope) {
+  $scope.imagePath = 'https://s4.postimg.org/yvip15065/omkar_dusane.jpg';
+
+   $scope.linkedin = function () {
+       window.open('https://www.linkedin.com/in/omkardusane'); 
+    };
+   $scope.facebook = function () {
+		window.open('https://www.facebook.com/dusaneomkar2');
+    };
+  
+  });
+
+</script>
+   
+   
     
     
     
