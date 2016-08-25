@@ -39,6 +39,7 @@
         <md-card-actions layout="column" layout-align="start">
           <md-button  ng-click="linkedin()"  >LinkedIn</md-button>
           <md-button   ng-click="facebook()" >Facebook</md-button>
+	  <md-button   ng-click="git()" >GitHub</md-button>
 	   </md-card-actions>
       </md-card>
     </div>
@@ -66,6 +67,11 @@ angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
    $scope.facebook = function () {
 		window.open('https://www.facebook.com/dusaneomkar2');
     };
+  
+   $scope.git = function () {
+		window.open('https://www.github.com/omkardusane');
+    };
+  
   
   });
 
