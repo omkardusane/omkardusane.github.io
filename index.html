@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html >
-  <head>
+  <head >
     <meta charset="UTF-8">
     <title>Omkar Dusane | Developer</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
@@ -16,52 +16,96 @@
     
   </head>
 
-  <body>
+  <body id="fontBook" >
 
-    <div ng-controller="AppCtrl" ng-cloak="" class="carddemoCardActionButtons" ng-app="MyApp">
-  <md-content class="md-padding" layout-xs="column" layout="row">
+ <div ng-controller="AppCtrl" ng-cloak="" class="carddemoCardActionButtons" ng-app="MyApp">
+
+ <md-content class="md-padding" layout-xs="column" layout="row">
+   
+   <div layout ="column" >
+   
+
     <div flex-xs="" flex-gt-xs="70" layout="column">
+      
       <md-card  >
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline">Omkar Dusane</span>
+            <span class="md-headline" id="fontBold">Omkar Dusane</span>
           </md-card-title-text>
-        </md-card-title>
+          
+          </md-card-title>
 
     
-	 <md-card-content>
+
+	          <md-card-content>
           <p>
       
-	   <br /> 
-	   
+	        <br/> 
+	 Hi, I am a software developer who loves to  
+     
 	   <md-list ng-controller="AppCtrl" ng-cloak>
-	   <md-subheader class="md-no-sticky"> Hi, I am a software developer who loves to </md-subheader>
-		<md-list-item> {{things[0]}} </md-list-item>	
-	<md-list-item> {{things[1]}} </md-list-item>		
-	<md-list-item> {{things[2]}} </md-list-item>	
+	 <md-list-item id="fontBookMedium"> {{things[0]}} </md-list-item>	
+<!-- 	<md-list-item> {{things[1]}} </md-list-item>		
+	<md-list-item> {{things[2]}} </md-list-item>	 -->
   </md-list>
-   <md-subheader class="md-no-sticky"> 
+
   <br /> What I do best is Design Minimum Viable Software Products and software components for startups and Build them, I am a full-stack. I live in Mumbai and I am open to discuss with you your ideas and your business plans. feel free to contact me and have a look at my linkedIn to see my work.. 
-         </md-subheader>  </p>
+        </p>
           <br />
         </md-card-content>
-        <md-card-actions layout="column" layout-align="start">
-          <md-button  ng-click="linkedin()"  >LinkedIn</md-button>
-          <md-button  ng-click="facebook()" >Facebook</md-button>
-	     <md-button   ng-click="git()" >GitHub</md-button>
-	   </md-card-actions>
-      </md-card>
 	  		 
     </div>
+  
+  <!-- NEW BLOCK BELOW -->
+   <div layout="row">
+    <md-card ng-repeat="item in works" flex= "45" layout="column">
+
+      <md-card-title>
+        <md-card-avatar>      
+          <img class="md-user-avatar" height="72" width="72" src='{{item.logo}}' />
+        </md-card-avatar>
+        <md-card-title-text>
+            <span class="md-headline" id="fontBold"  layout-margin="5" >{{item.name}} </span>
+        </md-card-title-text>
+         </md-card-title>
+         
+        <md-card-content layout-margin="5">
+    <br />
+      <md-divider ></md-divider>
+          <p ng-repeat="w in item.work">
+            {{w}}
+          </p>
+   </md-card-content>
+      <!-- <md-button  ng-click="linkedin()"  >
+       App 
+      </md-button>
+       -->
+    </md-card>
+
+  
+   
+   </div>
+
+</div>
+
+
+    <!-- SECOND DEVISION IMAGE AND PERSONAL DETAILS -->
 	 <div flex-xs="" flex-gt-xs="30" layout="column">
    
- <md-card>
+
+ <md-card  >
 	 <img flex-gt-xs="100" ng-src="https://s4.postimg.org/yvip15065/omkar_dusane.jpg" class="md-card-image" alt="Washed Out">
  <md-card-content>
- <p >
+ <p id="fontBookMedium">
  <md-divider></md-divider>
 	omkardusane@gmail.com <br /> +91 9821850314 </p>
  </md-card-content>      
+         <md-card-actions layout="column" layout-align="start">
+          <md-button  ng-click="linkedin()"  >LinkedIn</md-button>
+          <md-button  ng-click="facebook()" >Facebook</md-button>
+       <md-button   ng-click="git()" >GitHub</md-button>
+     </md-card-actions>
+    
 	 </md-card> 
 </div>
     </md-content>
@@ -91,6 +135,25 @@ angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
   
   $scope.things =  ['Eat Tasty Food','Write Beautiful Code','Sleep Like a Panda'] ;
    $scope.things = shuffleArray($scope.things);
+
+   $scope.works = 
+          [
+          {
+            name:'DIKY',
+            logo:"http://diky.co/blog/wp-content/uploads/2016/05/Logo-48-48.png",
+            descr:'Do I Know You is a personality mapping startup in Delhi',
+            work:['- Full android app --Native ',
+            '- Real Time Chat Component with server and android client      ','- 30% reduction in alpha version app size ,1% crash rate. ']
+          },
+          {name:'QuickWork',
+            logo:'http://quickworkapp.com:8124/QuickWork_Wordpress/wp-content/uploads/2016/07/rsz_quickwork_logo-01.png',
+            descr:'a Startup in Mumbai solving employibility problem in India with a unique business model',
+            work:['- Designed and developed Minimum Viable Product in early stage of the startup in Jan-16 being key product of the company for 7 months ',
+            '-lead 2 month development roadmap of APIs, Backend interfaces, android app and chat-bots with team of 2']
+          },
+          
+
+          ]
   function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -110,6 +173,35 @@ angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
   });
 </script>
    
+
+   <style>
+     
+     @font-face {
+font-family: 'Gotham-Book';
+src: url('fonts/gotham_r_book.ttf'); /* IE9 Compat Modes */
+}
+
+     @font-face {
+font-family: 'Gotham-Medium';
+src: url('fonts/gotham_r_medium.ttf'); /* IE9 Compat Modes */
+}
+    @font-face {
+font-family: 'Gotham-Bold';
+src: url('fonts/gotham_r_bold.ttf'); /* IE9 Compat Modes */
+}
+#fontBook{
+  font-family: 'Gotham-Book';
+}
+
+#fontBookMedium{
+  font-family: 'Gotham-Medium';
+}
+
+#fontBold{
+  font-family: 'Gotham-Bold';
+}
+
+   </style>
    
     
     
