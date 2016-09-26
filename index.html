@@ -101,6 +101,7 @@
 	omkardusane@gmail.com <br /> +91 9821850314 </p>
  </md-card-content>      
          <md-card-actions layout="column" layout-align="start">
+         <md-button   ng-click="resume()" >Resume</md-button>
           <md-button  ng-click="linkedin()"  >LinkedIn</md-button>
           <md-button  ng-click="facebook()" >Facebook</md-button>
        <md-button   ng-click="git()" >GitHub</md-button>
@@ -133,6 +134,10 @@ angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
 		window.open('https://www.github.com/omkardusane');
     };
   
+  $scope.resume = function(){
+  window.open('Resume_Omkar_Dusane.pdf');
+  };
+
   $scope.things =  ['Eat Tasty Food','Write Beautiful Code','Sleep Like a Panda'] ;
    $scope.things = shuffleArray($scope.things);
 
