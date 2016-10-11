@@ -57,21 +57,21 @@
     </div>
   
   <!-- NEW BLOCK BELOW -->
-   <div layout="row">
-    <md-card ng-repeat="item in works" flex= "45" layout="column">
+   <div layout="row" >
+    <md-card ng-repeat="item in works" flex= "60">
 
       <md-card-title>
         <md-card-avatar>      
-          <img class="md-user-avatar" height="72" width="72" src='{{item.logo}}' />
+          <img class="md-user-avatar" height="64" src='{{item.logo}}' />
         </md-card-avatar>
         <md-card-title-text>
             <span class="md-headline" id="fontBold"  layout-margin="5" >{{item.name}} </span>
         </md-card-title-text>
          </md-card-title>
          
-        <md-card-content layout-margin="5">
+        <md-card-content layout-margin="10">
     <br />
-      <md-divider ></md-divider>
+      
           <p ng-repeat="w in item.work">
             {{w}}
           </p>
@@ -126,6 +126,7 @@ angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
    $scope.linkedin = function () {
        window.open('https://www.linkedin.com/in/omkardusane'); 
     };
+	
    $scope.facebook = function () {
 		window.open('https://www.facebook.com/dusaneomkar2');
     };
@@ -150,15 +151,20 @@ angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
             work:['- Developed full android native app',
             '- Designed and Built Real Time Chat Component with server and android client      ','- 30% reduction in alpha version app size ,1% crash rate. ']
           },
-          {name:'QuickWork',
+		    {
+		  name:'Microsoft',
+            logo:'img/microsoft-logo.jpg',
+            descr:'a Startup in Mumbai solving employibility problem in India with a unique business model',
+            work:['- Evangelism, delivering lectures and tech talks, organizing workshops to introduce students to cutting edge technologies and helping them kickstart their projects.', '- Represented the nation at Global MSP Summit 2016 at Microsoft Headquarters, USA']
+		  },
+          { name:'QuickWork',
             logo:'http://quickworkapp.com:8124/QuickWork_Wordpress/wp-content/uploads/2016/07/rsz_quickwork_logo-01.png',
             descr:'a Startup in Mumbai solving employibility problem in India with a unique business model',
-            work:['- Designed and developed Minimum Viable Product in early stage of the startup in Jan-16 being key product of the company for 7 months ',
-            '- Lead 2 month development roadmap of APIs, Backend interfaces, android app and chat-bots with team of 2']
-          },
-          
-
-          ]
+            work:['- Designed and developed Minimum Viable Product in early stage of the startup in Jan-16 being key product of the company for 7 months',
+            '- Lead a development roadmap containing APIs, Backend interfaces, android app and chat-bots with team of 2']
+          }
+		  ];
+		  
   function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -171,7 +177,7 @@ angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
   
     $interval(function () {
             $scope.things = shuffleArray($scope.things);
-        }, 1000);
+        }, 800);
    
   
   
