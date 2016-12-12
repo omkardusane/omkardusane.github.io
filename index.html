@@ -58,7 +58,37 @@
   
   <!-- NEW BLOCK BELOW -->
    <div layout="row" >
-    <md-card ng-repeat="item in works" flex= "60">
+    <md-card ng-repeat="item in works.slice(0,2)" flex= "60">
+
+      <md-card-title>
+        <md-card-avatar>      
+          <img class="md-user-avatar" height="64" src='{{item.logo}}' />
+        </md-card-avatar>
+        <md-card-title-text>
+            <span class="md-headline" id="fontBold"  layout-margin="5" >{{item.name}} </span>
+        </md-card-title-text>
+         </md-card-title>
+         
+        <md-card-content layout-margin="10">
+    <br />
+      
+          <p ng-repeat="w in item.work">
+            {{w}}
+          </p>
+   </md-card-content>
+      <!-- <md-button  ng-click="linkedin()"  >
+       App 
+      </md-button>
+       -->
+    </md-card>
+
+  
+   
+   </div>
+
+   <!-- NEW BLOCK BELOW -->
+   <div layout="row" >
+    <md-card ng-repeat="item in works.slice(2,4)" flex= "60">
 
       <md-card-title>
         <md-card-avatar>      
@@ -145,18 +175,25 @@ angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
    $scope.works = 
           [
           {
+            name:'COIN',
+            logo:"img/coin60.png",
+            descr:'Coin Mobile technology is an IITB Incubated startup with a vision to revoultionize offline payments',
+            work:['- Developing a chat-bot named Paybycoin for p2p payments on slack.',
+            '- Developing caching module for android       ']
+          },
+          {
             name:'DIKY',
             logo:"http://diky.co/blog/wp-content/uploads/2016/05/Logo-48-48.png",
             descr:'Do I Know You is a personality mapping startup in Delhi',
             work:['- Developed full android native app',
             '- Designed and Built Real Time Chat Component with server and android client      ','- 30% reduction in alpha version app size ,1% crash rate. ']
           },
-		    {
-		  name:'Microsoft',
+		      {
+		        name:'Microsoft',
             logo:'img/microsoft-logo.jpg',
             descr:'a Startup in Mumbai solving employibility problem in India with a unique business model',
             work:['- Evangelism, delivering lectures and tech talks, organizing workshops to introduce students to cutting edge technologies and helping them kickstart their projects.', '- Represented the nation at Global MSP Summit 2016 at Microsoft Headquarters, USA']
-		  },
+		      },
           { name:'QuickWork',
             logo:'http://quickworkapp.com:8124/QuickWork_Wordpress/wp-content/uploads/2016/07/rsz_quickwork_logo-01.png',
             descr:'a Startup in Mumbai solving employibility problem in India with a unique business model',
@@ -164,6 +201,15 @@ angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
             '- Lead a development roadmap containing APIs, Backend interfaces, android app and chat-bots with team of 2']
           }
 		  ];
+
+    /*  $scope.splittedWorkArray = [];
+      
+      for(var i=0, i< $scope.works.length ; i++)
+      {
+        $scope.splittedWorkArray.push( $scope.works.slice(i+0,i+2) );
+      } 
+    */
+      
 		  
   function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
