@@ -1,0 +1,24 @@
+     @font-face {
+font-family: 'Gotham-Book';
+src: url('../fonts/gotham_r_book.ttf'); /* IE9 Compat Modes */
+}
+
+     @font-face {
+font-family: 'Gotham-Medium';
+src: url('../fonts/gotham_r_medium.ttf'); /* IE9 Compat Modes */
+}
+    @font-face {
+font-family: 'Gotham-Bold';
+src: url('../fonts/gotham_r_bold.ttf'); /* IE9 Compat Modes */
+}
+#fontBook{
+  font-family: 'Gotham-Book';
+}
+
+#fontBookMedium{
+  font-family: 'Gotham-Medium';
+}
+
+#fontBold{
+  font-family: 'Gotham-Bold';
+}
