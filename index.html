@@ -130,13 +130,14 @@
  <md-card-content>
  <p id="fontBookMedium">
  <md-divider></md-divider>
+	 
 	omkardusane@gmail.com <br /> +91 9821850314 </p>
  </md-card-content>      
-         <md-card-actions layout="column" layout-align="start">
-         <md-button   ng-click="resume()" >Resume</md-button>
+     <md-card-actions layout="column" layout-align="start">
+          <md-button   ng-click="resume()" >Resume</md-button>
           <md-button  ng-click="linkedin()"  >LinkedIn</md-button>
-          <md-button  ng-click="facebook()" >Facebook</md-button>
-       <md-button   ng-click="git()" >GitHub</md-button>
+	  <md-button  ng-click="youtube()" >Youtube</md-button>
+   	  <md-button   ng-click="git()" >GitHub</md-button>
      </md-card-actions>
     
 	 </md-card> 
@@ -163,6 +164,10 @@ angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
 		window.open('https://www.facebook.com/dusaneomkar2');
     };
   
+   $scope.youtube = function(){
+   		window.open('https://www.youtube.com/playlist?list=PLlUcfKkq8S0EM83zCV0PQ5ey_u2gcBmMy');
+   }
+	
    $scope.git = function () {
 		window.open('https://www.github.com/omkardusane');
     };
