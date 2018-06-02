@@ -7,26 +7,82 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <link rel="stylesheet" href="/assets/style.css">
     <link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0/angular-material.css'>
-    <link rel='stylesheet prefetch' href='https://material.angularjs.org/1.1.0/docs.css'>
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel='stylesheet prefetch' href='https://material.angularjs.org/1.1.0/docs.css'> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <style>
+        @font-face {
+            font-family: 'Gotham-Book';
+            src: url('fonts/gotham_r_book.ttf');
+            /* IE9 Compat Modes */
+        }
+
+        @font-face {
+            font-family: 'Gotham-Medium';
+            src: url('fonts/gotham_r_medium.ttf');
+            /* IE9 Compat Modes */
+        }
+
+        @font-face {
+            font-family: 'Gotham-Bold';
+            src: url('fonts/gotham_r_bold.ttf');
+            /* IE9 Compat Modes */
+        }
+
+        #fontBook {
+            font-family: 'Gotham-Book';
+        }
+
+        #fontBookMedium {
+            font-family: 'Gotham-Medium';
+        }
+
+        #fontBold {
+            font-family: 'Gotham-Bold';
+        }
+
+        /* @media screen and (max-width: 3000px) and (min-width: 960px) {
+        } */
+
+        .marginer {
+            margin-left: 30%;
+            margin-right: 30%;
+        }
+
+        @media screen and (max-width: 960px) {
+            .marginer {
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+            .imagec {
+                align-self: center;
+            }
+        }
+
+        .imagec {
+            align-self: left;
+        }
+    </style>
+
 </head>
 
 <body id="fontBook">
     <div ng-controller="AppCtrl" ng-cloak="" class="carddemoCardActionButtons" ng-app="MyApp">
-        <div md-align="center" layout="column" style="margin-left:30%;margin-right:30%;">
+        <div md-align="center" layout="column" class="marginer">
             <!-- SECOND DEVISION IMAGE AND PERSONAL DETAILS -->
-            <md-card layout="row">
-                <img style="width:auto;height:200px;margin-right:10%;" ng-src="https://raw.githubusercontent.com/omkardusane/omkardusane.github.io/master/assets/omkar_dusane.jpg"
-                    class="md-card-image" alt="-">
-                <div layout="column">
-                    <div class="md-headline" id="fontBold" style="margin-left:10%;margin-right:10%;">Omkar Dusane</div>
-                    <div class="md-subhead" id="fontBold" style="margin-left:10%;margin-right:10%;">Software Engineer, Technical Advisor & Author </div>
+            <md-card layout-gt-sm="row" layout-sm="column">
+                <img style="width:160px;height:200px;" ng-src="https://raw.githubusercontent.com/omkardusane/omkardusane.github.io/master/assets/omkar_dusane.jpg"
+                    class="md-card-image imagec" alt="-">
+                <div layout="column" style="margin:7%;">
+                    <div class="md-headline" id="fontBold">Omkar Dusane</div>
+                    <div class="md-subhead" id="fontBold">Software Engineer, Technical Advisor & Author </div>
                 </div>
             </md-card>
             <div flex="30" layout="column">
                 <md-card>
                     <md-card-content>
-                        <p id="fontBookMedium">
+                        <p id="fontBookMedium" style="word-wrap: break-word;">
                             omkardusane@gmail.com
                             <br /> +91 9821850314 </p>
                         <md-divider></md-divider>
@@ -83,43 +139,6 @@
                         };
                     });
             </script>
-
-
-            <style>
-                @font-face {
-                    font-family: 'Gotham-Book';
-                    src: url('fonts/gotham_r_book.ttf');
-                    /* IE9 Compat Modes */
-                }
-
-                @font-face {
-                    font-family: 'Gotham-Medium';
-                    src: url('fonts/gotham_r_medium.ttf');
-                    /* IE9 Compat Modes */
-                }
-
-                @font-face {
-                    font-family: 'Gotham-Bold';
-                    src: url('fonts/gotham_r_bold.ttf');
-                    /* IE9 Compat Modes */
-                }
-
-                #fontBook {
-                    font-family: 'Gotham-Book';
-                }
-
-                #fontBookMedium {
-                    font-family: 'Gotham-Medium';
-                }
-
-                #fontBold {
-                    font-family: 'Gotham-Bold';
-                }
-            </style>
-
-
-
-
 </body>
 
 </html>
