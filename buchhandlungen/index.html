@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Berliner Buchhandlungen: ein Forschungsprojekt</title>
+<meta name="description" content="Was macht eine unabhängige Buchhandlung stark? Ein Forschungsprojekt mit Berliner Buchhandlungen.">
+<style>
+  :root {
+    --bg: #faf7f2; --text: #2b2622; --muted: #6b625a; --accent: #8a3b2e;
+    --card: #ffffff; --line: #e6dfd5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #1d1a17; --text: #ece6de; --muted: #b3a99e; --accent: #e08a74; --card: #26221e; --line: #3a342e; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 Georgia, "Times New Roman", serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 12px; }
+  h2 { font-size: 1.3rem; margin: 40px 0 8px; }
+  p, li { color: var(--text); }
+  .muted, small { color: var(--muted); }
+  a { color: var(--accent); }
+  .buttons { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+  .btn { display: inline-block; padding: 10px 18px; border-radius: 6px; background: var(--accent); color: #fff; text-decoration: none; font-family: Verdana, Geneva, sans-serif; font-size: 15px; border: 0; cursor: pointer; }
+  .btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  form { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 20px; }
+  label { display: block; margin: 14px 0 4px; font-family: Verdana, Geneva, sans-serif; font-size: 14px; }
+  .check label { display: flex; gap: 8px; align-items: flex-start; font-size: 15px; margin: 8px 0; }
+  input[type=text], textarea { width: 100%; padding: 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--text); font: inherit; }
+  textarea { min-height: 70px; }
+  details { margin-top: 48px; border-top: 1px solid var(--line); padding-top: 16px; }
+  footer { margin-top: 48px; border-top: 1px solid var(--line); padding-top: 16px; font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Was macht eine unabhängige Buchhandlung stark?</h1>
+<p>Ich spreche mit Berliner Buchhandlungen, um das herauszufinden. Das ist ein Forschungsprojekt, und ich lade Sie ein, mitzugestalten, was daraus entsteht. Ich verkaufe nichts. Ich höre zu.</p>
+<div class="buttons">
+  <a class="btn" href="#gedanken">Ihre Gedanken teilen</a>
+  <a class="btn secondary" id="call-link" href="#kontakt">Gespräch vereinbaren</a>
+</div>
+
+<h2>Warum</h2>
+<p>Große Ketten haben Kundenkarten, Veranstaltungsprogramme und Verkaufsdaten. Unabhängige Buchhandlungen haben etwas Besseres: Menschen, die Bücher wirklich kennen. Ich möchte verstehen, was Ihnen Zeit kostet und was Ihnen hilft, und was Buchhandlungen voneinander lernen können. eBuch zeigt schon, wie stark Zusammenarbeit ist. Ich möchte das ergänzen, nicht ersetzen.</p>
+
+<h2>Wer ich bin</h2>
+<p>Hallo, ich bin Omkar. Meine Frau liest leidenschaftlich gern, und zusammen haben wir schon viele Berliner Buchhandlungen entdeckt. Ich bin Softwareentwickler und baue gerade mein eigenes kleines Unternehmen auf.</p>
+<p><strong>Was sollte ich als Nächstes lesen?</strong></p>
+
+<h2>Was ich zurückgebe</h2>
+<ul>
+  <li>Eine anonyme Zusammenfassung: was Berliner Buchhandlungen bewegt und was bei anderen funktioniert</li>
+  <li>Eine helfende Hand im Laden, z. B. bei einer Lesung</li>
+  <li>Hilfe bei digitalen Dingen</li>
+  <li>Buchhandlungen, die mitgestalten, nutzen das erste Produkt, das aus diesem Projekt entsteht, ein Jahr lang kostenlos</li>
+</ul>
+
+<h2 id="gedanken">Ihre Gedanken</h2>
+<form id="form">
+  <label for="shop">Name der Buchhandlung (optional)</label>
+  <input type="text" id="shop" name="Buchhandlung">
+
+  <label>Kreuzen Sie an, was passt:</label>
+  <div class="check">
+    <label><input type="checkbox" name="pain" value="Ich wünschte, mehr Leute kämen zu unseren Lesungen."> Ich wünschte, mehr Leute kämen zu unseren Lesungen.</label>
+    <label><input type="checkbox" name="pain" value="Ich wünschte, Veranstaltungen zu organisieren wäre einfacher."> Ich wünschte, Veranstaltungen zu organisieren wäre einfacher.</label>
+    <label><input type="checkbox" name="pain" value="Ich wünschte, ich hätte mehr Zeit für Bücher und weniger für Verwaltung."> Ich wünschte, ich hätte mehr Zeit für Bücher und weniger für Verwaltung.</label>
+  </div>
+
+  <label for="q1">Was hat Sie letzte Woche am meisten Zeit gekostet, außer Bücher zu verkaufen?</label>
+  <textarea id="q1" name="Zeitfresser"></textarea>
+
+  <label for="q2">Was wünschen Sie sich, wäre einfacher?</label>
+  <textarea id="q2" name="Wunsch"></textarea>
+
+  <label for="book">Ihre Buchempfehlung für mich</label>
+  <input type="text" id="book" name="Buchempfehlung">
+
+  <label for="when">Wann passt ein kurzes Gespräch? Ihre E-Mail oder Telefonnummer (optional)</label>
+  <input type="text" id="when" name="Gespräch">
+
+  <p><small>Datenschutz: Ihre Antworten werden nur für dieses Projekt genutzt und nur anonym zusammengefasst weitergegeben. Beim Absenden öffnet sich Ihr E-Mail-Programm mit Ihren Antworten; nichts wird auf dieser Seite gespeichert.</small></p>
+  <button class="btn" type="submit">Absenden</button>
+</form>
+
+<h2 id="kontakt">Kontakt</h2>
+<p>Omkar Dusane<br>
+E-Mail: <a id="email-link" href="#">[E-Mail]</a></p>
+
+<details>
+  <summary>In English</summary>
+  <p>What makes an independent bookshop strong? I'm talking with Berlin bookshops to find out. This is a research project, and I'm inviting you to help shape what comes out of it. I'm not selling anything; I'm listening. In return: an anonymous summary of what moves Berlin bookshops, a helping hand in the shop, help with digital things, and shops that help shape it get the first product that comes out of this project free for a year. The form above works in English too.</p>
+</details>
+
+<footer>
+  <p><strong>Impressum</strong><br>
+  Omkar Dusane<br>
+  Berlin-Pankow<br>
+  E-Mail: <span id="email-text">[E-Mail]</span></p>
+  <p class="muted">Diese Seite wird über GitHub Pages bereitgestellt. GitHub kann dabei technische Daten wie Ihre IP-Adresse verarbeiten. Es werden keine Cookies oder Tracker verwendet.</p>
+</footer>
+
+</main>
+<script>
+  // Set once; the mailto form and contact links use it.
+  const CONTACT_EMAIL = "omkarberlink@gmail.com";
+
+  if (CONTACT_EMAIL) {
+    document.getElementById("email-link").href = "mailto:" + CONTACT_EMAIL;
+    document.getElementById("email-link").textContent = CONTACT_EMAIL;
+    document.getElementById("email-text").textContent = CONTACT_EMAIL;
+    document.getElementById("call-link").href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Gespräch: Berliner Buchhandlungen");
+  }
+
+  document.getElementById("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const f = e.target;
+    const pains = [...f.querySelectorAll("input[name=pain]:checked")].map(c => "- " + c.value);
+    const lines = [
+      "Buchhandlung: " + f.Buchhandlung.value,
+      "",
+      "Was passt:",
+      ...(pains.length ? pains : ["- (nichts angekreuzt)"]),
+      "",
+      "Was kostet am meisten Zeit: " + f.Zeitfresser.value,
+      "Was wäre einfacher: " + f.Wunsch.value,
+      "Buchempfehlung: " + f.Buchempfehlung.value,
+      "Gespräch: " + f["Gespräch"].value
+    ];
+    window.location.href = "mailto:" + CONTACT_EMAIL +
+      "?subject=" + encodeURIComponent("Meine Gedanken: Berliner Buchhandlungen") +
+      "&body=" + encodeURIComponent(lines.join("\n"));
+  });
+</script>
+</body>
+</html>
