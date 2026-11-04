@@ -82,8 +82,14 @@
   <label for="when">Wann passt ein kurzes Gespräch? Ihre E-Mail oder Telefonnummer (optional)</label>
   <input type="text" id="when" name="Gespräch">
 
-  <p><small>Datenschutz: Ihre Antworten werden nur für dieses Projekt genutzt und nur anonym zusammengefasst weitergegeben. Beim Absenden öffnet sich Ihr E-Mail-Programm mit Ihren Antworten; nichts wird auf dieser Seite gespeichert.</small></p>
-  <button class="btn" type="submit">Absenden</button>
+  <div aria-hidden="true" style="position:absolute;left:-9999px">
+    <label for="website">Website</label>
+    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+  </div>
+
+  <p><small>Datenschutz: Ihre Antworten werden nur für dieses Projekt genutzt und nur anonym zusammengefasst weitergegeben. Beim Absenden werden Ihre Antworten in einer Datenbank bei Supabase gespeichert, auf die nur ich Zugriff habe.</small></p>
+  <button class="btn" type="submit" id="submit">Absenden</button>
+  <p id="form-status" role="status"></p>
 </form>
 
 <h2 id="kontakt">Kontakt</h2>
@@ -100,7 +106,7 @@ E-Mail: <a id="email-link" href="#">[E-Mail]</a></p>
   Omkar Dusane<br>
   Berlin-Pankow<br>
   E-Mail: <span id="email-text">[E-Mail]</span></p>
-  <p class="muted">Diese Seite wird über GitHub Pages bereitgestellt. GitHub kann dabei technische Daten wie Ihre IP-Adresse verarbeiten. Es werden keine Cookies oder Tracker verwendet.</p>
+  <p class="muted">Diese Seite wird über GitHub Pages bereitgestellt. GitHub kann dabei technische Daten wie Ihre IP-Adresse verarbeiten. Formularantworten werden bei Supabase gespeichert. Es werden keine Cookies oder Tracker verwendet.</p>
 </footer>
 
 </main>
@@ -115,24 +121,48 @@ E-Mail: <a id="email-link" href="#">[E-Mail]</a></p>
     document.getElementById("call-link").href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Gespräch: Berliner Buchhandlungen");
   }
 
-  document.getElementById("form").addEventListener("submit", function (e) {
+  // Public publishable key: safe in the page. Row level security only allows inserts.
+  const SUPABASE_URL = "https://vrrhptkcbjmbkjeqxbdv.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_NLL2A6HyNltRwSsk0dlFgA_2Qabld-q";
+
+  document.getElementById("form").addEventListener("submit", async function (e) {
     e.preventDefault();
     const f = e.target;
-    const pains = [...f.querySelectorAll("input[name=pain]:checked")].map(c => "- " + c.value);
-    const lines = [
-      "Buchhandlung: " + f.Buchhandlung.value,
-      "",
-      "Was passt:",
-      ...(pains.length ? pains : ["- (nichts angekreuzt)"]),
-      "",
-      "Was kostet am meisten Zeit: " + f.Zeitfresser.value,
-      "Was wäre einfacher: " + f.Wunsch.value,
-      "Buchempfehlung: " + f.Buchempfehlung.value,
-      "Gespräch: " + f["Gespräch"].value
-    ];
-    window.location.href = "mailto:" + CONTACT_EMAIL +
-      "?subject=" + encodeURIComponent("Meine Gedanken: Berliner Buchhandlungen") +
-      "&body=" + encodeURIComponent(lines.join("\n"));
+    const status = document.getElementById("form-status");
+    const button = document.getElementById("submit");
+
+    // Honeypot: real visitors never see or fill this field.
+    if (f.website.value) {
+      status.textContent = "Danke! Ihre Antworten sind angekommen.";
+      f.reset();
+      return;
+    }
+
+    const row = {
+      shop: f.Buchhandlung.value.trim() || null,
+      pains: [...f.querySelectorAll("input[name=pain]:checked")].map(c => c.value),
+      time_sink: f.Zeitfresser.value.trim() || null,
+      wish: f.Wunsch.value.trim() || null,
+      book: f.Buchempfehlung.value.trim() || null,
+      contact: f["Gespräch"].value.trim() || null
+    };
+
+    button.disabled = true;
+    status.textContent = "Wird gesendet …";
+    try {
+      const res = await fetch(SUPABASE_URL + "/rest/v1/bookshop_responses", {
+        method: "POST",
+        headers: { "apikey": SUPABASE_KEY, "Content-Type": "application/json", "Prefer": "return=minimal" },
+        body: JSON.stringify(row)
+      });
+      if (!res.ok) throw new Error(res.status);
+      status.textContent = "Danke! Ihre Antworten sind angekommen.";
+      f.reset();
+    } catch (err) {
+      status.innerHTML = 'Das hat leider nicht geklappt. Schreiben Sie mir gern direkt: <a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>';
+    } finally {
+      button.disabled = false;
+    }
   });
 </script>
 </body>
