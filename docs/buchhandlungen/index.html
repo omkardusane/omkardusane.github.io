@@ -138,14 +138,18 @@ E-Mail: <a id="email-link" href="#">[E-Mail]</a></p>
       return;
     }
 
-    const row = {
-      shop: f.Buchhandlung.value.trim() || null,
-      pains: [...f.querySelectorAll("input[name=pain]:checked")].map(c => c.value),
-      time_sink: f.Zeitfresser.value.trim() || null,
-      wish: f.Wunsch.value.trim() || null,
-      book: f.Buchempfehlung.value.trim() || null,
-      contact: f["Gespräch"].value.trim() || null
-    };
+    // Every named field goes into answers, so new form fields need no database change.
+    const answers = {};
+    for (const el of f.elements) {
+      if (!el.name || el.name === "website") continue;
+      if (el.type === "checkbox") {
+        answers[el.name] = answers[el.name] || [];
+        if (el.checked) answers[el.name].push(el.value);
+      } else if (el.value.trim()) {
+        answers[el.name] = el.value.trim();
+      }
+    }
+    const row = { form: "bookshops-v1", answers };
 
     button.disabled = true;
     status.textContent = "Wird gesendet …";
