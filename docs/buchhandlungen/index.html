@@ -40,7 +40,7 @@
 <p>Ich spreche mit Berliner Buchhandlungen, um das herauszufinden. Das ist ein Forschungsprojekt, und ich lade Sie ein, mitzugestalten, was daraus entsteht. Ich verkaufe nichts. Ich höre zu.</p>
 <div class="buttons">
   <a class="btn" href="#gedanken">Ihre Gedanken teilen</a>
-  <a class="btn secondary" id="call-link" href="#kontakt">Gespräch vereinbaren</a>
+  <a class="btn secondary" href="https://cal.com/omkar-d/30min?overlayCalendar=true" target="_blank" rel="noopener">Gespräch vereinbaren</a>
 </div>
 
 <h2>Warum</h2>
@@ -94,7 +94,8 @@
 
 <h2 id="kontakt">Kontakt</h2>
 <p>Omkar Dusane<br>
-E-Mail: <a id="email-link" href="#">[E-Mail]</a></p>
+E-Mail: <a id="email-link" href="#">[E-Mail]</a><br>
+Termin: <a href="https://cal.com/omkar-d/30min?overlayCalendar=true" target="_blank" rel="noopener">Gespräch buchen</a></p>
 
 <details>
   <summary>In English</summary>
@@ -118,7 +119,6 @@ E-Mail: <a id="email-link" href="#">[E-Mail]</a></p>
     document.getElementById("email-link").href = "mailto:" + CONTACT_EMAIL;
     document.getElementById("email-link").textContent = CONTACT_EMAIL;
     document.getElementById("email-text").textContent = CONTACT_EMAIL;
-    document.getElementById("call-link").href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Gespräch: Berliner Buchhandlungen");
   }
 
   // Public publishable key: safe in the page. Row level security only allows inserts.
