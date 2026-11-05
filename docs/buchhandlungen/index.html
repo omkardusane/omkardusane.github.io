@@ -26,6 +26,11 @@
   .btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
   form { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 20px; }
   label { display: block; margin: 14px 0 4px; font-family: Verdana, Geneva, sans-serif; font-size: 14px; }
+  .hint { font-size: 14px; color: var(--muted); margin: 4px 0 0; }
+  .about { display: flex; gap: 16px; align-items: flex-start; margin: 24px 0 8px; padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
+  .about img { width: 96px; height: 96px; object-fit: cover; border-radius: 50%; flex-shrink: 0; }
+  .about p { margin: 0 0 6px; font-size: 15px; }
+  .about ul { margin: 0; padding-left: 18px; font-size: 15px; }
   .check label { display: flex; gap: 8px; align-items: flex-start; font-size: 15px; margin: 8px 0; }
   input[type=text], textarea { width: 100%; padding: 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--text); font: inherit; }
   textarea { min-height: 70px; }
@@ -63,12 +68,16 @@
   <label for="shop">Name der Buchhandlung (optional)</label>
   <input type="text" id="shop" name="Buchhandlung">
 
-  <label>Kreuzen Sie an, was passt:</label>
+  <label>Ein paar Beispiele. Kreuzen Sie an, was passt:</label>
   <div class="check">
     <label><input type="checkbox" name="pain" value="Ich wünschte, mehr Leute kämen zu unseren Lesungen."> Ich wünschte, mehr Leute kämen zu unseren Lesungen.</label>
     <label><input type="checkbox" name="pain" value="Ich wünschte, Veranstaltungen zu organisieren wäre einfacher."> Ich wünschte, Veranstaltungen zu organisieren wäre einfacher.</label>
     <label><input type="checkbox" name="pain" value="Ich wünschte, ich hätte mehr Zeit für Bücher und weniger für Verwaltung."> Ich wünschte, ich hätte mehr Zeit für Bücher und weniger für Verwaltung.</label>
   </div>
+
+  <label for="wishes">Und Ihre eigenen Wünsche? Schreiben Sie gern auf, was Ihnen fehlt oder was leichter sein sollte.</label>
+  <textarea id="wishes" name="Eigene Wünsche" style="min-height:110px" placeholder="z. B. Ich brauche eine einfache Lösung, um mit meinen Kund:innen in Kontakt zu bleiben, damit sie öfter wiederkommen."></textarea>
+  <p class="hint">Die Beispiele oben sind nur Anregungen. Ihre eigenen Worte sind für mich am wertvollsten.</p>
 
   <label for="q1">Was hat Sie letzte Woche am meisten Zeit gekostet, außer Bücher zu verkaufen?</label>
   <textarea id="q1" name="Zeitfresser"></textarea>
@@ -76,7 +85,19 @@
   <label for="q2">Was wünschen Sie sich, wäre einfacher?</label>
   <textarea id="q2" name="Wunsch"></textarea>
 
-  <label for="book">Ihre Buchempfehlung für mich</label>
+  <div class="about">
+    <img src="../assets/omkar.jpg" alt="Foto von Omkar" onerror="this.remove()">
+    <div>
+      <p><strong>Kurz zu mir:</strong> Ich bin Omkar. Zuletzt gelesen habe ich:</p>
+      <ul>
+        <li><em>Nexus</em> von Yuval Noah Harari</li>
+        <li><em>Everybody Loves a Good Drought</em> von P. Sainath</li>
+        <li><em>Gewaltfreie Kommunikation</em> von Marshall B. Rosenberg</li>
+      </ul>
+    </div>
+  </div>
+
+  <label for="book">Was sollte ich als Nächstes lesen? Ihre Buchempfehlung für mich</label>
   <input type="text" id="book" name="Buchempfehlung">
 
   <label for="when">Wann passt ein kurzes Gespräch? Ihre E-Mail oder Telefonnummer (optional)</label>
